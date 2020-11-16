@@ -76,6 +76,17 @@
 
 
 
+                                            <div class="form-group">
+                                                <select class="form-control Roles" name="ticket_type">
+                                                    @foreach($ProblemTypes as $ProblemType)
+                                                        <option value="{{$ProblemType->id}}">{{$ProblemType->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+
+
+
 
                                             <div class="form-group">
                                                 <span class="input-icon icon-right">

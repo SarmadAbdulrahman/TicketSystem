@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Ticket;
 use App\TicketDetail;
 use App\TicketType;
+use App\ProblemType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Validator;
@@ -41,10 +42,12 @@ class ClientAgentController extends Controller
 
         app()->setLocale(Session::get('locale'));
         $TicketTypes=TicketType::all();
+        $ProblemTypes=ProblemType::all();
 
 
         $informationArray=array(
-            'TicketTypes'=>$TicketTypes
+            'TicketTypes'=>$TicketTypes,
+            'ProblemTypes'=>$ProblemTypes
         );
         return view('ClientAgent.CreateTicket',$informationArray);
     }
