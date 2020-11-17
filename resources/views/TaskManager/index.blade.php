@@ -74,7 +74,7 @@
       </div>
       <div class="modal-body">
         <form method="post" action="{{url('TaskManager/AssingDepartment')}}">
-     
+
           <div class="form-group">
           <select class="form-control  Roles" name="Department">
                                                     @foreach($Departments as $Department)
@@ -85,7 +85,7 @@
 
               <input type="hidden" class="id" name="id" >
           </div>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -108,7 +108,7 @@
                                     <th>
                                             مؤسسة العميل
                                             </th>
-                                            
+
                                     <th>
                                         {{ trans('messages.Ticket Date') }}
                                     </th>
@@ -122,7 +122,13 @@
                                         {{ trans('messages.Ticket status') }}
                                     </th>
 
-                                   
+
+                                    <th class="numeric">
+                                        {{ trans('messages.Problem_type') }}
+                                    </th>
+
+
+
                                     <th class="numeric">
                                         {{ trans('messages.Department') }}
                                     </th>
@@ -140,7 +146,8 @@
                                         <td>{{$ticket->issue_name}}</td>
                                         <td>{{$ticket->agent_comment}}</td>
                                         <td>{{$ticket->progress}}</td>
-                                    
+
+                                        <td>{{$ticket->problem_name}}</td>
                                         @if($ticket->department_id!=0)
                                         <td>{{App\Department::find($ticket->department_id)->name}}</td>
                                             @else
@@ -182,14 +189,14 @@
                                             </button>
                                         </div>
                                         <form class="form-inline" method="post" action="{{url('TaskManager/AssingDepartment')}}">
-                                         
+
                                         <div class="modal-body">
 
 
-                           
+
 
                                               <div class="row">
-                                              
+
                                               <div class="col-xs-12 col-md-12  col-lg-12">
                                               </div>
                                               </div>

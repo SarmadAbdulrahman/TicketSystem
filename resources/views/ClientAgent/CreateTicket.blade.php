@@ -77,7 +77,7 @@
 
 
                                             <div class="form-group">
-                                                <select class="form-control Roles" name="ticket_type">
+                                                <select class="form-control Roles" name="Prblem_Name">
                                                     @foreach($ProblemTypes as $ProblemType)
                                                         <option value="{{$ProblemType->id}}">{{$ProblemType->name}}</option>
                                                     @endforeach

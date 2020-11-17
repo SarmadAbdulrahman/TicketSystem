@@ -37,6 +37,7 @@ return [
      'ChangeUserDepartment'=>' تعيين مدير القسم',
      'ReAssigning'=>'اعاده تعيين القسم',
      'Rejcted'=>'رفض',
+     'Problem_type'=>'صنف المشكلة',
 
 ];
 ?>

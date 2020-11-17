@@ -16,5 +16,6 @@ class Ticket extends Model
         , 'issue_name'
         , 'progress'
         ,'comp_id'
+        ,'problem_name'
     ];
 }

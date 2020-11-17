@@ -34,6 +34,7 @@ return [
     'AssignAgent'=>'Assing Employee',
     'ReAssigning'=>'ReAssing Department',
     'Rejcted'=>'Rejcted',
+    'Problem_type'=>'problem type',
 
 ];
 ?>

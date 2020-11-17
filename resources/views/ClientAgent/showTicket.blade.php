@@ -83,6 +83,11 @@
                                         {{ trans('messages.Ticket status') }}
                                     </th>
 
+
+                                    <th class="numeric">
+                                        {{ trans('messages.Problem_type') }}
+                                    </th>
+
                                     <th class="numeric">
                                         {{ trans('messages.Ticket type') }}
                                     </th>
@@ -99,6 +104,7 @@
                                         <td>{{$ticket->issue_name}}</td>
                                         <td>{{$ticket->agent_comment}}</td>
                                         <td>{{$ticket->progress}}</td>
+                                        <td>{{$ticket->problem_name}}</td>
                                         <td>{{App\TicketType::find($ticket->ticket_type_id)->ar_name}}</td>
                                         <td><a href="{{url('ClientAgent/GetDetails?id=')}}{{$ticket->id}}" class=" btn btn-success"> {{ trans('messages.GetDetails') }}</a></td>
                                         </tr>

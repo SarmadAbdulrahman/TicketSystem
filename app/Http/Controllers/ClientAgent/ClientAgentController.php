@@ -66,12 +66,15 @@ class ClientAgentController extends Controller
             return response()->json(['status'=>'fail','reasons'=>$validator->messages()],400);
         }
 
+
+
         Ticket::create([
               'user_id'=>auth()->user()->id
             , 'ticket_type_id'=>$request["ticket_type"]
             , 'issue_name'=>$request["ticket"]
             ,'progress'=>'open'
             ,'comp_id'=>auth()->user()->comp_id
+            ,'problem_name'=>ProblemType::find($request["Prblem_Name"])->name
 
         ]);
 
