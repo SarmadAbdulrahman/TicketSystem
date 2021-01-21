@@ -94,7 +94,7 @@
                                 <tbody>
                                 @foreach($tickets as $ticket)
                                     <tr>
-                                        <td>TICKET0000000000000{{$ticket->id}}</td>
+                                        <td>TICKET0000000002021{{$ticket->id}}</td>
                                         <td>{{$ticket->created_at}}</td>
                                         <td>{{$ticket->issue_name}}</td>
                                         <td>{{$ticket->agent_comment}}</td>
@@ -102,7 +102,7 @@
                                         <td>{{App\TicketType::find($ticket->ticket_type_id)->ar_name}}</td>
                                         <td>
                                             <a href="{{url('IwAgent/GetDetails?id=')}}{{$ticket->id}}" class=" btn btn-success"> {{ trans('messages.GetDetails') }}</a>
-                                            <a href="{{url('IwAgent/Rejcted?id=')}}{{$ticket->id}}" class=" btn btn-danger"> {{ trans('messages.Rejcted') }}</a>
+                                            <a  class=" btn btn-danger zzz" id="{{$ticket->id}}">  {{ trans('messages.Rejcted')   }}</a>
 
                                         </td>
                                     </tr>
@@ -147,6 +147,63 @@
                             <!-- Modal -->
 
 
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-inline" method="GET" action="{{url('IwAgent/Rejcted')}}">
+                @csrf
+                <div class="modal-body">
+
+                    <div class="form-group">
+
+                        <input type="hidden" class="id" name="id" >
+                    </div>
+
+
+                    <div class="form-group">
+                        <span class="input-icon icon-right">
+                            <input type="text" class="form-control" name="resaon" id="resaon" placeholder="resaon">
+                            <i class="glyphicon glyphicon-file circular"></i>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -174,6 +231,25 @@
 
 
             });
+
+
+
+     $('body').on('click','.zzz',function () {
+
+
+            var TicketID=$(this).attr('id');
+
+            $('.id').val(TicketID);
+            $('#exampleModal2').modal('show');
+
+
+});
+
+
+
+
+
+
 
         });
     </script>

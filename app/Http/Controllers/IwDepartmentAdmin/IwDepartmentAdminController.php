@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Validator;
 use App\News;
+use Carbon\Carbon;
 
 
 
@@ -99,6 +100,7 @@ class IwDepartmentAdminController extends Controller
 
         $ticket=Ticket::find($request->id);
         $ticket->agent_id=$request->username;
+        $ticket->procceser_state="in process";
         $ticket->save();
 
         return redirect()->back();
@@ -121,7 +123,7 @@ class IwDepartmentAdminController extends Controller
 
 
 
-        return view('IwDepartmentAdmin.News',$InformationArray); 
+        return view('IwDepartmentAdmin.News',$InformationArray);
     }
 
 
@@ -129,7 +131,7 @@ class IwDepartmentAdminController extends Controller
     public function StoreNews(Request $request)
     {
 
-        // StoreNews 
+        // StoreNews
         $userId=auth()->user()->id;
 
         $DepartmentId=Department::where('user_id',"=",$userId)->get()[0]["id"];
@@ -165,7 +167,7 @@ class IwDepartmentAdminController extends Controller
       //dd($tickets);
       $CountOfOpenTicket=Ticket::where('agent_id',"=",auth()->user()->id)->where('progress',"=","open")->count();
       $CountOfTicket=Ticket::where('agent_id',"=",auth()->user()->id)->count();
-     
+
         $InfromationArray=Array(
             'tickets'=>$tickets,
             'openticket'=>$CountOfOpenTicket,

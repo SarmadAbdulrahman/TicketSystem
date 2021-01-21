@@ -140,19 +140,39 @@
                                 <tbody>
                                 @foreach($tickets as $ticket)
                                     <tr>
-                                        <td>TICKET0000000000000{{$ticket->id}}</td>
+                                        @if( date_format($ticket->created_at,'Y-m-d')==Carbon\Carbon::today()->toDateString()  and $ticket->department_id==0)
+                                        <td class="alert alert-danger">TICKET0000000002021{{$ticket->id}}</td>
+                                        <td class="alert alert-danger">{{App\Company::find($ticket->comp_id)->company_name}}</td>
+                                        <td class="alert alert-danger">{{$ticket->created_at}}</td>
+                                        <td class="alert alert-danger">{{$ticket->issue_name}}</td>
+                                        <td class="alert alert-danger">{{$ticket->agent_comment}}</td>
+                                        <td class="alert alert-danger">{{$ticket->progress}}</td>
+
+                                        <td class="alert alert-danger">{{$ticket->problem_name}}</td>
+                                        @if($ticket->department_id!=0)
+                                        <td>{{App\Department::find($ticket->department_id)->name}}</td>
+                                            @else
+                                            <td class="alert alert-danger">no</td>
+                                        @endif
+
+                                        @else
+                                        <td>TICKET0000000002021{{$ticket->id}}</td>
                                         <td>{{App\Company::find($ticket->comp_id)->company_name}}</td>
                                         <td>{{$ticket->created_at}}</td>
                                         <td>{{$ticket->issue_name}}</td>
                                         <td>{{$ticket->agent_comment}}</td>
                                         <td>{{$ticket->progress}}</td>
-
                                         <td>{{$ticket->problem_name}}</td>
                                         @if($ticket->department_id!=0)
                                         <td>{{App\Department::find($ticket->department_id)->name}}</td>
                                             @else
                                             <td>no</td>
                                         @endif
+
+
+
+                                        @endif
+
 
                                            @if($ticket->progress=='open')
 

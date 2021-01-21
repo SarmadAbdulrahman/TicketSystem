@@ -9,7 +9,7 @@ return [
     'ticket_form'=>'Ticket creation form',
     'Create_Users'=>'Create Users',
     'Create_ticket'=>'Create Ticket',
-    'ticket_information'=>'ticket information',
+    'ticket_information'=>'ticket severity',
     'success'=>'success',
     'ticket_created'=>'ticket has been created',
     'Ticket Code'=>'ticket code',
@@ -35,6 +35,7 @@ return [
     'ReAssigning'=>'ReAssing Department',
     'Rejcted'=>'Rejcted',
     'Problem_type'=>'problem type',
+    'ProccessMan'=>'Proccessor',
 
 ];
 ?>

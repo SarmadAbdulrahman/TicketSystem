@@ -38,6 +38,7 @@ return [
      'ReAssigning'=>'اعاده تعيين القسم',
      'Rejcted'=>'رفض',
      'Problem_type'=>'صنف المشكلة',
+     'ProccessMan'=>'الشخص المعني'
 
 ];
 ?>

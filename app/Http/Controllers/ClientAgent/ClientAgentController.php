@@ -42,7 +42,7 @@ class ClientAgentController extends Controller
 
         app()->setLocale(Session::get('locale'));
         $TicketTypes=TicketType::all();
-        $ProblemTypes=ProblemType::all();
+        $ProblemTypes=ProblemType::where('comp_id','=',auth()->user()->comp_id)->get();
 
 
         $informationArray=array(
@@ -59,6 +59,7 @@ class ClientAgentController extends Controller
         $validator = Validator::make($request->all(), [
             'ticket_type' => 'required',
             'ticket' => 'required',
+          //  'FILE'=>'required'
         ]);
 
         if ($validator->fails()) {
@@ -68,12 +69,26 @@ class ClientAgentController extends Controller
 
 
 
+        // StoreTicket
+
+
+
+        $name="";
+        if($files=$request->file('FILE'))
+        {
+
+            $name=$files->getClientOriginalName();
+            $files->move('FILE',$name);
+
+        }
+
         Ticket::create([
               'user_id'=>auth()->user()->id
             , 'ticket_type_id'=>$request["ticket_type"]
             , 'issue_name'=>$request["ticket"]
             ,'progress'=>'open'
             ,'comp_id'=>auth()->user()->comp_id
+             ,'attach_path'=>$name
             ,'problem_name'=>ProblemType::find($request["Prblem_Name"])->name
 
         ]);

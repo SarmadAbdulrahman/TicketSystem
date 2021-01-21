@@ -89,6 +89,12 @@
                                     <th class="numeric">
                                         {{ trans('messages.Action') }}
                                     </th>
+
+                                    <th class="numeric">
+                                        {{ trans('messages.ProccessMan') }}
+                                    </th>
+
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -100,6 +106,16 @@
                                         <td>{{$ticket->agent_comment}}</td>
                                         <td>{{$ticket->progress}}</td>
                                         <td>{{App\TicketType::find($ticket->ticket_type_id)->ar_name}}</td>
+                                        @if($ticket->agent_id>0)
+                                         <td>{{$ticket->procceser_state}}
+                                        <br>
+                                          {{App\User::find($ticket->agent_id)->name}}
+                                        </td>
+                                        @else
+                                        <td>
+                                       Pending
+                                        </td>
+                                        @endif
                                         <td>
                                             <a href="{{url('IwDepartmentAdmin/GetDetails?id=')}}{{$ticket->id}}" class=" btn btn-success"> {{ trans('messages.GetDetails') }}</a>
                                             <a id="{{$ticket->id}}" class=" btn btn-danger AssignEmp"> {{ trans('messages.AssignAgent') }}</a>
@@ -163,7 +179,7 @@
                                             <div class="modal-body">
 
                                                 <div class="form-group">
-                                                  
+
                                                     <input type="hidden" class="id" name="id" >
                                                 </div>
 
@@ -171,7 +187,7 @@
                                                               <div class="form-group">
                                                 <span class="input-icon icon-right">
                                                     <input type="text" class="form-control" name="userameComment" id="userameInput" placeholder="Comment">
-                                                  
+
                                                 </span>
                                             </div>
 
@@ -180,7 +196,7 @@
                                                 <div class="form-group">
                                                 <span class="input-icon icon-right">
                                                     <input type="text" class="form-control" name="status" id="userameInput" placeholder="status">
-                                                 
+
                                                 </span>
                                             </div>
 

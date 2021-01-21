@@ -50,7 +50,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 | this is for SystemAdministrator of the system
 |
 |
-|   
+|
 |
 */
 
@@ -92,12 +92,12 @@ Route::group(['prefix'=>'SystemAdministrator','middleware' => ['role:SystemAdmin
 
 
 Route::group(['prefix'=>'ClientAgent','middleware' => ['role:ClientAgent']], function () {
-  
+
 
 
     Route::get('/','ClientAgent\ClientAgentController@index');
     Route::get('/CreateTicket','ClientAgent\ClientAgentController@CreateTicket');
-    Route::post('/StoreTicket','ClientAgent\ClientAgentController@StoreTicket');
+    Route::PUT('/StoreTicket','ClientAgent\ClientAgentController@StoreTicket');
     Route::get('/ShowTicket','ClientAgent\ClientAgentController@ShowTicket');
     Route::get('/GetDetails','ClientAgent\ClientAgentController@GetDetails');
     Route::post('/StoreReply','ClientAgent\ClientAgentController@StoreReply');
@@ -120,7 +120,7 @@ Route::group(['prefix'=>'ClientAgent','middleware' => ['role:ClientAgent']], fun
 
 
 Route::group(['prefix'=>'TaskManager','middleware' => ['role:TaskManager']], function () {
-  
+
 
 
     Route::get('/','TaskManager\TaskManagerController@index');
@@ -165,15 +165,15 @@ Route::group(['prefix'=>'IwDepartmentAdmin','middleware' => ['role:IwDepartmentA
 | Web Routes IwAgent
 |--------------------------------------------------------------------------
 | this is for IwAgent of the system
-|      
 |
-|   
+|
+|
 |
 */
 
 
 Route::group(['prefix'=>'IwAgent','middleware' => ['role:IwAgent']], function () {
-    
+
 
     // News  StoreNews  Rejcted
      Route::get('/','IwAgent\IwAgentController@index');

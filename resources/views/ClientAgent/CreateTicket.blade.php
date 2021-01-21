@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="widget-body">
                                     <div id="registration-form">
-                                        <form role="form" method="post" id="cc" action="{{url('ClientAgent/StoreTicket')}}">
+                                        <form role="form" method="PUT" id="cc"    action="{{url('ClientAgent/StoreTicket')}}"   enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-title">
                                                 {{ trans('messages.ticket_information') }}
@@ -94,6 +94,8 @@
                                                 </span>
                                             </div>
 
+
+                                            <input type="file" name="FILE">
 
 
                                             <hr class="wide"/>
@@ -145,6 +147,7 @@
                         console.log(data);
                     },
                     error: function (data) {
+                        console.log(data);
                         Swal.fire(
                             'fail',
                             'please fill all field',

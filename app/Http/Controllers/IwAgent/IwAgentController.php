@@ -16,12 +16,12 @@ use App\News;
 
 class IwAgentController extends Controller
 {
-    
+
     public function index()
     {
 
 
-        // this for get all in one 
+        // this for get all in one
 
         app()->setLocale(Session::get('locale'));
         $userId=auth()->user()->id;
@@ -64,14 +64,17 @@ class IwAgentController extends Controller
     public function Rejcted(Request $request)
     {
 
-        
+
+
+     //   dd($request);
 
         $tickets=Ticket::find($request->id);
-        $tickets->department_id='';
+        $tickets->department_id=0;
+        $tickets->agent_comment=$request->resaon;
         $tickets->progress='Rejectd';
         $tickets->save();//='Rejectd';
 
-        
+
         return redirect()->back();
 
 
@@ -128,9 +131,9 @@ class IwAgentController extends Controller
       //dd($tickets);
       $CountOfOpenTicket=Ticket::where('agent_id',"=",auth()->user()->id)->where('progress',"=","open")->count();
       $CountOfTicket=Ticket::where('agent_id',"=",auth()->user()->id)->count();
-     
-      
-      
+
+
+
         $InfromationArray=Array(
             'tickets'=>$tickets,
             'openticket'=>$CountOfOpenTicket,
@@ -151,15 +154,15 @@ class IwAgentController extends Controller
 
 
 
-        return view('IwAgent.News',$InformationArray); 
+        return view('IwAgent.News',$InformationArray);
     }
 
 
     public function StoreNews(Request $request)
     {
 
-        // StoreNews  
-     
+        // StoreNews
+
         $userId=auth()->user()->id;
         News::create([
             'user_id'=>$userId,
