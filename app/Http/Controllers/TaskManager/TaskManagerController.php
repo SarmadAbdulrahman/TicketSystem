@@ -24,7 +24,7 @@ class TaskManagerController extends Controller
 
     public function  index(){
         app()->setLocale(Session::get('locale'));
-        $Tikcets=Ticket::all();
+        $Tikcets=Ticket::orderBy('id', 'DESC')->get();
         $Departments=Department::all();
 
         $informationArray=Array(

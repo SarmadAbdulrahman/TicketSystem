@@ -50,13 +50,21 @@
                                 <span class="widget-caption">Inline ticket</span>
                             </div>
                             <div class="widget-body bordered-left bordered-warning">
-                                <form class="form-inline"  role="form" method="post" action="{{url('IwDepartmentAdmin/StoreReply')}}">
+                                <form class="form-inline"  role="form" method="post" action="{{url('IwDepartmentAdmin/StoreReply')}}" enctype="multipart/form-data">
                                     @csrf
+
+                                    <div class="row">
+                                            <div class="col-lg-6 col-sm-6 col-xs-6">
                                     <input type="hidden" name="id" value="{{$id}}">
                                     <div class="form-group ">
                                         <label class="sr-only" for="exampleInputEmail2">Comment</label>
                                         <textarea name="reply" id="" cols="150" rows="2"></textarea>
                                     </div>
+
+                                    <input type="file" name="FILE">
+                                </div>
+                            </div>
+
 
                                     <button type="submit" class="btn btn-default">Reply</button>
                                 </form>
@@ -156,6 +164,16 @@
                                         <img src="assets/img/temp1.png" alt="" style="max-height: 158px;max-width: 100%;">
                                     </div>
                                     <i class="text-muted text-sm">{{$TicketDetail->customer_comment}}</i>
+
+
+                                    <ul>
+                                            <i class="text-muted text-sm">
+                                            <a href="{{url('/FILE/'.$TicketDetail->img_path )}}">Check</a>
+
+                                            </i>
+                                    </ul>
+
+
                                 </div>
                             </div>
                         </li>

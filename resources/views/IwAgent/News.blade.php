@@ -66,16 +66,16 @@
 
 
                                 <div class="widget-body" dir="rtl" lang="ar">
-                 
+
                                     <div class="flip-scroll">
 
                                         <form class="form"  role="form" method="post" action="{{url('IwAgent/StoreNews')}}">
                                     @csrf
-                                    
+
 
                                     <div class="form-group">
                                                 <span class="input-icon icon-right">
-                                                    <input type="text" class="form-control" name="doucment_name" id="DocumentName" placeholder="DocumentName">
+                                                    <input type="text" class="form-control" name="doucment_name" id="DocumentName" placeholder="DocumentName" required>
                                                     <i class="glyphicon glyphicon-file circular"></i>
                                                 </span>
                                             </div>
@@ -83,21 +83,21 @@
 
                                                  <div class="form-group">
                                                 <span class="input-icon icon-right">
-                                                    <input type="text" class="form-control" name="doucment_type" id="DocumentType" placeholder="DocumentType">
+                                                    <input type="text" class="form-control" name="doucment_type" id="DocumentType" placeholder="DocumentType" required>
                                                     <i class="glyphicon glyphicon-file circular"></i>
                                                 </span>
                                             </div>
 
 
                                     <div class="form-group ">
-                                   
-                                        <textarea name="reply" id="editor"></textarea>
+
+                                        <textarea name="reply" id="editor" required></textarea>
                                     </div>
 
 
                                     <button type="submit" class="btn btn-default">Reply</button>
                                 </form>
-                                  
+
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                                             </thead>
                                             <tbody>
 
-                                        
+
                                                 <tr>
                                                     <td>
                                                      doucment_name
@@ -159,15 +159,15 @@
                                                         <p>{{$post->doucment_type}}</p>
                                                     </td>
                                                 </tr>
-                                        
+
                                                 <tr>
                                                     <td>Text alignment</td>
                                                     <td>
                                                      {!!$post->descrption!!}
                                                     </td>
                                                 </tr>
-                                          
-                                               
+
+
                                             </tbody>
                                         </table>
                                     </div><!--Widget Main Container-->
@@ -177,13 +177,13 @@
                     </div>
                     @endforeach
 
-                    
 
-                       
+
+
         </div>
     </div>
 
-    
+
 @endsection
 @extends('layouts.ThemeSource.footer')
 
@@ -198,8 +198,8 @@
                 rtl:true
             });
 
-        
-        
+
+
 
 
         });

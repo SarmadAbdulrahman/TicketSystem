@@ -32,7 +32,7 @@
                 <a class="sidebar-toggler" href="#">
                     <i class="fa fa-arrows-h"></i>
                 </a>
-                <a class="refresh" id="refresh-toggler" href="/ClientAgent">
+            <a class="refresh" id="refresh-toggler" href="{{url('ClientAgent\ShowTicket')}}">
                     <i class="glyphicon glyphicon-refresh"></i>
                 </a>
                 <a class="fullscreen" id="fullscreen-toggler" href="#">

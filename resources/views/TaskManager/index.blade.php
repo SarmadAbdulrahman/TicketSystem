@@ -32,7 +32,7 @@
                 <a class="sidebar-toggler" href="#">
                     <i class="fa fa-arrows-h"></i>
                 </a>
-                <a class="refresh" id="refresh-toggler" href="/ClientAgent">
+                <a class="refresh" id="refresh-toggler" href="{{url('TaskManager/')}}">
                     <i class="glyphicon glyphicon-refresh"></i>
                 </a>
                 <a class="fullscreen" id="fullscreen-toggler" href="#">
@@ -75,18 +75,24 @@
       <div class="modal-body">
         <form method="post" action="{{url('TaskManager/AssingDepartment')}}">
 
-          <div class="form-group">
-          <select class="form-control  Roles" name="Department">
-                                                    @foreach($Departments as $Department)
-                                                        <option value="{{$Department->id}}">{{$Department->name}}</option>
-                                                    @endforeach
+
+     <div class="row">
+        <div class="col-xs-12 col-md-12  col-lg-12">
+
+
+          <select class="form-control Roles" name="Department">
+             @foreach($Departments as $Department)
+                    <option value="{{$Department->id}}">{{$Department->name}}</option>
+             @endforeach
             </select>
+
             @csrf
 
               <input type="hidden" class="id" name="id" >
           </div>
-
+        </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Send message</button>

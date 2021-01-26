@@ -148,10 +148,22 @@ class ClientAgentController extends Controller
         }
 
 
+        $name="";
+        if($files=$request->file('FILE'))
+        {
+
+            $name=$files->getClientOriginalName();
+            $files->move('FILE',$name);
+
+        }
+
+
+
         TicketDetail::create([
              'customer_comment'=>$request["reply"],
                'customer_id'=>auth()->user()->id,
-             'ticket_id'=>$request["id"]
+             'ticket_id'=>$request["id"],
+              'img_path'=>$name,
         ]);
 
 

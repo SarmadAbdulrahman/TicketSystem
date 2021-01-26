@@ -15,7 +15,7 @@
         <div class="navbar-container">
             <!-- Navbar Barnd -->
             <div class="navbar-header pull-left">
-                <a href="#" class="navbar-brand">
+            <a href="{{url(auth()->user()->getRoleNames()[0].'/')}}" class="navbar-brand">
                     <small>
                         <img src="{{asset("assets/img/logo.png")}}" alt="" />
                     </small>
@@ -139,7 +139,7 @@
 
 
 
-                   
+
 
 
                     </ul>

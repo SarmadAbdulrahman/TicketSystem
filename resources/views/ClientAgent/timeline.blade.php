@@ -50,13 +50,15 @@
                                 <span class="widget-caption">Inline ticket</span>
                             </div>
                             <div class="widget-body bordered-left bordered-warning">
-                                <form class="form-inline"  role="form" method="post" action="{{url('ClientAgent/StoreReply')}}">
+                                <form class="form-inline"  role="form" method="post" action="{{url('ClientAgent/StoreReply')}}" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$id}}">
                                     <div class="form-group ">
                                         <label class="sr-only" for="exampleInputEmail2">Comment</label>
                                         <textarea name="reply"  cols="150" rows="2"></textarea>
                                     </div>
+
+                                    <input type="file" name="FILE">
 
                                     <button type="submit" class="btn btn-default">Reply</button>
                                 </form>
@@ -156,6 +158,12 @@
                                         <img src="assets/img/temp1.png" alt="" style="max-height: 158px;max-width: 100%;">
                                     </div>
                                     <i class="text-muted text-sm">{{ $TicketDetail->customer_comment }}</i>
+                                    <ul>
+                                            <i class="text-muted text-sm">
+                                            <a href="{{url('/FILE/'.$TicketDetail->img_path )}}">Check</a>
+
+                                            </i>
+                                    </ul>
                                 </div>
                             </div>
                         </li>

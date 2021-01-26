@@ -34,7 +34,7 @@
                 <a class="sidebar-toggler" href="#">
                     <i class="fa fa-arrows-h"></i>
                 </a>
-                <a class="refresh" id="refresh-toggler" href="default.htm">
+                <a class="refresh" id="refresh-toggler" href="#">
                     <i class="glyphicon glyphicon-refresh"></i>
                 </a>
                 <a class="fullscreen" id="fullscreen-toggler" href="#">

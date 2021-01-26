@@ -156,6 +156,16 @@
                                         <img src="assets/img/temp1.png" alt="" style="max-height: 158px;max-width: 100%;">
                                     </div>
                                     <i class="text-muted text-sm">{{$TicketDetail->customer_comment}}</i>
+
+
+                                    <ul>
+                                            <i class="text-muted text-sm">
+                                            <a href="{{url('/FILE/'.$TicketDetail->img_path )}}">Check</a>
+
+                                            </i>
+                                    </ul>
+
+
                                 </div>
                             </div>
                         </li>

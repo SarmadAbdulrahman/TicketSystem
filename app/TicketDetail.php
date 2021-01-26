@@ -16,5 +16,6 @@ class TicketDetail extends Model
         , 'ticket_id'
         ,'agent_id'
         ,'customer_id'
+        ,'img_path'
     ];
 }
