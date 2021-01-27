@@ -38,11 +38,11 @@ Route::get('/arabic','Helper\HelperController@arabic');
 Route::get('/english','Helper\HelperController@english');
 Auth::routes(['register'=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
-
+// ChangePassword  StoreNewPassword
 Route::get('/rTasksReport','Admin\AdminController@rTasksReport');
 
-
-
+Route::get('/ChangePassword','HomeController@ChangePassword');
+Route::post('/StoreNewPassword','HomeController@StoreDepartment');
 /*
 |--------------------------------------------------------------------------
 | Web Routes SystemAdministrator rTasks
@@ -71,7 +71,10 @@ Route::group(['prefix'=>'SystemAdministrator','middleware' => ['role:SystemAdmin
         Route::get('/rTasks','Admin\AdminController@rTasks');
         Route::get('/rTasksReport','Admin\AdminController@rTasksReport');
         Route::get('/CreateDepartment','Admin\AdminController@CreateDepartment');
-        // CreateDepartment
+
+        Route::get('/CreateCompany','Admin\AdminController@CreateCompany');
+        Route::post('/StoreCompany','Admin\AdminController@StoreCompany');
+        // CreateDepartment  CreateCompany  StoreCompany
 
 });
 

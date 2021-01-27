@@ -87,6 +87,16 @@
             <ul class="nav sidebar-menu">
                 <!--Dashboard-->
 
+
+
+                <li>
+                        <a href="{{url('/ChangePassword')}}">
+                            <span class="menu-text">Change Password</span>
+                        </a>
+                    </li>
+
+
+
                 <!--UI Elements-->
                 @role('SystemAdministrator')
                 <li>
@@ -103,6 +113,16 @@
                                 <span class="menu-text">Create User</span>
                             </a>
                         </li>
+
+
+
+                        <li>
+                                <a href="{{url('SystemAdministrator/CreateCompany')}}">
+                                    <span class="menu-text">Create Company</span>
+                                </a>
+                            </li>
+
+
 
                         <li>
                             <a href="{{url('SystemAdministrator/changeUserRole')}}">

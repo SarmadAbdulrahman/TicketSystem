@@ -273,6 +273,49 @@ public function StoreDepartment(Request $request){
 }
 
 
+public function CreateCompany()
+{
+
+
+
+
+
+
+    return view('Admin.CreateCompany');
+
+}
+
+
+
+
+public function StoreCompany(Request $request){
+
+
+
+    $validator = Validator::make($request->all(), [
+
+        'Company' => 'required|string|max:50',
+
+    ]);
+
+    if ($validator->fails()) {
+
+        return response()->json(['status'=>'fail','reasons'=>$validator->messages()],400);
+    }
+
+    // this is new way of beer  Role
+   $user= Company::create([
+         'company_name'=>$request['Company'],
+
+
+    ]);
+
+
+    return response()->json(['status'=>'success'],200);
+
+
+
+   }
 
 
 
