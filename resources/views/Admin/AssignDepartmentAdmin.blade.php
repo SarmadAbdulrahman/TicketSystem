@@ -78,6 +78,10 @@
                                                 {{ trans('messages.UserEmail') }}
                                             </th>
 
+                                            <th>
+                                                    {{ trans('messages.departments') }}
+                                                </th>
+
 
                                             <th class="numeric">
                                                 {{ trans('messages.Action') }}
@@ -89,6 +93,7 @@
                                             <tr>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->email}}</td>
+                                              <td>{{App\Department::where('user_id',$user->id)->get()[0]['name']}}</td>
                                                 <td>
                                                     <a id="{{$user->id}}" class=" btn btn-danger ChangeRole"> {{ trans('messages.ChangeUserDepartment') }}</a>
                                                 </td>

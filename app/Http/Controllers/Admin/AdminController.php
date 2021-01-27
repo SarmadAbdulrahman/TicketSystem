@@ -46,7 +46,7 @@ class AdminController extends Controller
 
         $Roles=Role::all();
         $Companies=Company::all();
-        
+
         $departments=Department::all();
         app()->setLocale(Session::get('locale'));
         $InformationArray=Array(
@@ -95,7 +95,7 @@ class AdminController extends Controller
 
 
         if($request["Role"]==5){
-            
+
             Manager::Create([
                 "emp_id"=>$user->id,
                 "manager_id"=>$request["Department"]
@@ -131,6 +131,19 @@ class AdminController extends Controller
 
 
         return view('Admin.ChangeUserRole',$informationArray);
+    }
+
+
+
+    public function CreateDepartment()
+    {
+
+
+        $informationArray=Array(
+
+        );
+
+        return view('Admin.CreateDepartment',$informationArray);
     }
 
 
@@ -210,7 +223,7 @@ class AdminController extends Controller
 
 
     public function rTasksReport (Request $request)
-    
+
     {
 
 
@@ -226,6 +239,56 @@ class AdminController extends Controller
        return response()->json(['tickets'=>$tickets],200);
 
     }
+
+
+
+
+
+
+public function StoreDepartment(Request $request){
+
+
+
+    $validator = Validator::make($request->all(), [
+
+        'Departments' => 'required|string|max:50',
+
+    ]);
+
+    if ($validator->fails()) {
+
+        return response()->json(['status'=>'fail','reasons'=>$validator->messages()],400);
+    }
+
+    // this is new way of beer  Role
+   $user= Department::create([
+         'name'=>$request['Departments'],
+         'descrption'=>'',
+
+    ]);
+
+
+    return response()->json(['status'=>'success'],200);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

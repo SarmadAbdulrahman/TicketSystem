@@ -8,6 +8,7 @@ return [
     'event' => 'event',
     'ticket_form'=>'Ticket creation form',
     'Create_Users'=>'Create Users',
+    'Create_Department'=>'Create Departmen',
     'Create_ticket'=>'Create Ticket',
     'ticket_information'=>'ticket severity',
     'success'=>'success',

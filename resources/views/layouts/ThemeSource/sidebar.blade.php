@@ -118,6 +118,13 @@
                         </li>
 
 
+                        <li>
+                                <a href="{{url('SystemAdministrator/CreateDepartment')}}">
+                                    <span class="menu-text">Create Department  </span>
+                                </a>
+                            </li>
+
+
 
                     </ul>
                 </li>
@@ -206,6 +213,33 @@
 
                     </ul>
                 </li>
+
+
+                <li>
+                        <a href="#" class="menu-dropdown">
+                            <i class="menu-icon fa fa-file-excel-o"></i>
+                            <span class="menu-text">Reports</span>
+                            <i class="menu-expand"></i>
+                        </a>
+
+                        <ul class="submenu">
+
+                            <li>
+                                <a href="{{url('IwAgent/rTasks')}}">
+                                    <span class="menu-text">Tasks</span>
+                                </a>
+                            </li>
+
+
+
+
+
+
+                        </ul>
+                    </li>
+
+
+
                 @endrole()
 
      @role('IwDepartmentAdmin')
@@ -232,6 +266,32 @@
 
                     </ul>
                 </li>
+
+
+                <li>
+                        <a href="#" class="menu-dropdown">
+                            <i class="menu-icon fa fa-file-excel-o"></i>
+                            <span class="menu-text">Reports</span>
+                            <i class="menu-expand"></i>
+                        </a>
+
+                        <ul class="submenu">
+
+                            <li>
+                                <a href="{{url('IwDepartmentAdmin/rTasks')}}">
+                                    <span class="menu-text">Tasks</span>
+                                </a>
+                            </li>
+
+
+
+
+
+
+                        </ul>
+                    </li>
+
+
                 @endrole()
 
 

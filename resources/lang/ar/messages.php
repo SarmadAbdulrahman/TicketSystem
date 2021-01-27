@@ -12,6 +12,7 @@ return [
      'Create_Users'=>'انشاء المستخدم',
      'Create_ticket'=>'انشاء تذكره',
      'ticket_information'=>' معلومات التذكرة',
+     'Create_Department'=>'انشاء قسم',
      'ticket_form'=>'لوحة انشاء تذكرة',
      'success'=>'تمت العملية بنجاح',
      'ticket_created'=>'تم انشاء التذكرة بنجاح',
