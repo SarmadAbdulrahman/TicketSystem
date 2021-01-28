@@ -74,7 +74,10 @@ Route::group(['prefix'=>'SystemAdministrator','middleware' => ['role:SystemAdmin
 
         Route::get('/CreateCompany','Admin\AdminController@CreateCompany');
         Route::post('/StoreCompany','Admin\AdminController@StoreCompany');
-        // CreateDepartment  CreateCompany  StoreCompany
+
+        Route::get('/CreateNews','Admin\AdminController@CreateNews');
+        Route::post('/StoreNews','Admin\AdminController@StoreNews');
+        // CreateDepartment  CreateCompany  StoreCompany  StoreNews
 
 });
 

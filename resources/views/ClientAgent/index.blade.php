@@ -44,6 +44,14 @@
         <!-- /Page Header -->
         <!-- Page Body -->
 
+
+
+        <br>
+
+        @foreach($News as $new)
+                   <marquee direction="right">{{$new->news}}</marquee>
+        @endforeach
+
     </div>
 @endsection
 @extends('layouts.ThemeSource.footer')

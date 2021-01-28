@@ -124,6 +124,14 @@
 
 
 
+                            <li>
+                                <a href="{{url('SystemAdministrator/CreateNews')}}">
+                                    <span class="menu-text">Store News</span>
+                                </a>
+                            </li>
+
+
+
                         <li>
                             <a href="{{url('SystemAdministrator/changeUserRole')}}">
                                 <span class="menu-text">Change User Role</span>

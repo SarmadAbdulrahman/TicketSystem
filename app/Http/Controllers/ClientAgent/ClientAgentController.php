@@ -10,7 +10,7 @@ use App\ProblemType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Validator;
-
+use App\Newer;
 
 class ClientAgentController extends Controller
 {
@@ -33,7 +33,12 @@ class ClientAgentController extends Controller
 
 
      //   app()->setLocale(Session::get('locale'));
-        return view('ClientAgent.index');
+     $News=Newer::where('comp_id',auth()->user()->comp_id)->get();
+
+     $informationArray=array(
+         "News"=>$News
+     );
+        return view('ClientAgent.index',$informationArray);
     }
 
 

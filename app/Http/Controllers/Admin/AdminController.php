@@ -11,7 +11,9 @@ use Spatie\Permission\Models\Role;
 use Validator;
 use App\Manager;
 use App\Ticket;
+use App\Newer;
 use App\Company;
+
 //Company
 
 class AdminController extends Controller
@@ -316,6 +318,51 @@ public function StoreCompany(Request $request){
 
 
    }
+
+
+
+   public function CreateNews()
+   {
+
+
+    $Companies=Company::all();
+
+    $informationArray=Array(
+        'Companies'=>$Companies
+    );
+    return view('Admin.CreateNews',$informationArray);
+
+   }
+
+
+
+
+   public function StoreNews(Request $request){
+
+
+
+    $validator = Validator::make($request->all(), [
+
+        'w3review' => 'required|string|max:100',
+
+    ]);
+
+    if ($validator->fails()) {
+
+        return response()->json(['status'=>'fail','reasons'=>$validator->messages()],400);
+    }
+
+    // this is new way of beer  Role
+   $user= Newer::create([
+         'news'=>$request['w3review'],
+         'comp_id'=>$request['Companies'],
+
+    ]);
+
+
+    return response()->json(['status'=>'success'],200);
+
+}
 
 
 
